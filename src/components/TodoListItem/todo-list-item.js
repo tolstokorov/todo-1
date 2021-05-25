@@ -2,23 +2,27 @@ import React from 'react';
 
 const TodoListItem = ( { id, label, attention, done, onDone, onDel, onAttention } ) => {
     return (
-        <span>
-            <button
-                onClick={ () => {
-                    onDel(id)
-                 } }
-            > X </button>&nbsp;
-            <button
-                onClick={ () => {
-                    onAttention(id)
-                 } }
-                disabled={ done }
-            > ! </button>&nbsp;
+        <span className='text-break'
+        >
             <span
+                className={ `lead 
+                    ${ done ? 'text-muted text-decoration-line-through' : 
+                    attention ? 'fw-bold' : '' }` }
                 onClick={ () => {
                     onDone(id)
                  } }
-            >{ label }{ done ? ' __DONE__' : null }{ !done && attention ? ' __attention!__' : null }</span>
+            >{ label }</span>&nbsp;&nbsp;&nbsp;
+            <button className='btn btn-success '
+                onClick={ () => {
+                    onAttention(id)
+                } }
+                disabled={ done }
+            > ! </button>&nbsp;
+            <button className='btn btn-danger '
+                onClick={ () => {
+                    onDel(id)
+                } }
+            > X </button>
         </span>
     );
 };

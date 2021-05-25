@@ -117,31 +117,38 @@ class App extends Component {
     render() {
         const listAfter = this.search(
             this.filter(this.state.todoList, this.state.filter), this.state.search);
+            
 
         return (
-            <>
-            <Header />
-            <SearchPanel
-                onSearch={ this.onSearch }
-                search={ this.state.search }
-            />
-            <AppInfo
-                list={ listAfter }
-                
-                onFilter={ this.onFilter }
-                filter={ this.state.filter }
-            />
-            <TodoList
-                list={ listAfter }
+            <div className='container-xl text-center'>
+                <Header />
+                <aside className='row justify-content-center align-items-stretch mb-5 gy-4'>
+                    <section className="col-12 col-lg-8">
+                        <AppInfo
+                            list={ listAfter }
+                            
+                            onFilter={ this.onFilter }
+                            filter={ this.state.filter }
+                        />
+                    </section>
+                    <section className="col-12 col-sm-6 col-lg-4">
+                        <SearchPanel
+                            onSearch={ this.onSearch }
+                            search={ this.state.search }
+                        />
+                    </section>
+                </aside>
+                <TodoList
+                    list={ listAfter }
 
-                onDel={ this.onDel }
-                onAttention={ this.onAttention }
-                onDone={ this.onDone }
-            />
-            <AddPanel
-                onAdd={ this.onAdd }
-            />
-        </>
+                    onDel={ this.onDel }
+                    onAttention={ this.onAttention }
+                    onDone={ this.onDone }
+                />
+                <AddPanel
+                    onAdd={ this.onAdd }
+                />
+            </div>
         )
     };
 };

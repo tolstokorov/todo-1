@@ -10,23 +10,29 @@ class AddPanel extends Component {
         const { onAdd } = this.props;
 
         return (
-            <form
-                onSubmit={ (e) => {
-                    e.preventDefault();
-                    onAdd(this.state.text);
-                    this.setState( { text: '' } );
-                }
-                }
-            >
-                <input 
-                    type="text"
-                    onChange={ (e) => this.setState(( { text } ) => {
-                        return { text: e.target.value };
-                    }) }
-                    value={ this.state.text }
-                />
-                <button>Add</button>
-            </form>
+            <div className='row justify-content-center'>
+                <div className="col-sm-8 col-md-6 col-lg-4">
+                    <form
+                        className='input-group'
+                        onSubmit={ (e) => {
+                            e.preventDefault();
+                            onAdd(this.state.text);
+                            this.setState( { text: '' } );
+                        }
+                        }
+                    >
+                        <input 
+                            className='form-control'
+                            type="text"
+                            onChange={ (e) => this.setState(( { text } ) => {
+                                return { text: e.target.value };
+                            }) }
+                            value={ this.state.text }
+                        />
+                        <button className='btn btn-dark'>Add</button>
+                    </form>
+                </div>
+            </div>
         );
     };
 };

@@ -3,7 +3,9 @@ import TodoListItem from '../TodoListItem';
 
 const TodoList = ( { list, onDel, onDone, onAttention } ) => {
 
-    const items = list.map(item => <li key={ item.id }>
+    const items = list.map(item => <li key={ item.id }
+        className='my-3'
+    >
         <TodoListItem
             id={ item.id }
 
@@ -19,9 +21,13 @@ const TodoList = ( { list, onDel, onDone, onAttention } ) => {
     </li>);
 
     return (
-        <ul>
+        <ol className='p-0 m-0 my-5'
+            style={ {
+                listStylePosition: 'inside'
+            } }
+        >
             { items }
-        </ul>
+        </ol>
     );
 };
 
