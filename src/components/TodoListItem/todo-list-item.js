@@ -8,20 +8,14 @@ const TodoListItem = ( { label, attention, done, onDone, onDel, onAttention } ) 
                 className={ `lead 
                     ${ done ? 'text-muted text-decoration-line-through' : 
                     attention ? 'fw-bold' : '' }` }
-                onClick={ () => {
-                    onDone()
-                 } }
+                onClick={ onDone }
             >{ label }</span>&nbsp;&nbsp;&nbsp;
             <button className='btn btn-success '
-                onClick={ () => {
-                    onAttention()
-                } }
+                onClick={ onAttention }
                 disabled={ done }
             > ! </button>&nbsp;
             <button className='btn btn-danger '
-                onClick={ () => {
-                    onDel()
-                } }
+                onClick={ onDel }
             > X </button>
         </span>
     );
