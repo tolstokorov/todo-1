@@ -134,7 +134,7 @@ class App extends Component {
                             filter={ this.state.filter }
                         />
                     </section>
-                    <section className="col-12 col-sm-6 col-lg-4">
+                    <section className="col-12 col-sm-8 col-md-6 col-lg-4">
                         <SearchPanel
                             onSearch={ this.onSearch }
                             search={ this.state.search }
