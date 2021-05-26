@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoListItem = ( { id, label, attention, done, onDone, onDel, onAttention } ) => {
+const TodoListItem = ( { label, attention, done, onDone, onDel, onAttention } ) => {
     return (
         <span className='text-break'
         >
@@ -9,18 +9,18 @@ const TodoListItem = ( { id, label, attention, done, onDone, onDel, onAttention 
                     ${ done ? 'text-muted text-decoration-line-through' : 
                     attention ? 'fw-bold' : '' }` }
                 onClick={ () => {
-                    onDone(id)
+                    onDone()
                  } }
             >{ label }</span>&nbsp;&nbsp;&nbsp;
             <button className='btn btn-success '
                 onClick={ () => {
-                    onAttention(id)
+                    onAttention()
                 } }
                 disabled={ done }
             > ! </button>&nbsp;
             <button className='btn btn-danger '
                 onClick={ () => {
-                    onDel(id)
+                    onDel()
                 } }
             > X </button>
         </span>

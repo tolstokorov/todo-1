@@ -7,16 +7,14 @@ const TodoList = ( { list, onDel, onDone, onAttention } ) => {
         className='my-3'
     >
         <TodoListItem
-            id={ item.id }
-
             label={ item.label }
-            onDel={ onDel }
+            onDel={ () => onDel(item.id) }
             
             attention={ item.attention }
-            onAttention={ onAttention }
+            onAttention={ () => onAttention(item.id) }
 
             done={ item.done }
-            onDone={ onDone }
+            onDone={ () => onDone(item.id) }
             />
     </li>);
 
