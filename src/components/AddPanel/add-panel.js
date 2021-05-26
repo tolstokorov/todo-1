@@ -10,7 +10,7 @@ class AddPanel extends Component {
         const { onAdd } = this.props;
 
         return (
-            <div className='row justify-content-center'>
+            <div className='row justify-content-center mb-5'>
                 <div className="col-sm-8 col-md-6 col-lg-4">
                     <form
                         className='input-group'
