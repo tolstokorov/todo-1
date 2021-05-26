@@ -20,7 +20,7 @@ class App extends Component {
         this.setState(( { todoList } ) => {
             const newEl = { 
                 id: Math.max(...todoList.map(el => el.id), 1) + 1,
-                label: text === '' ? 'Empty' : text,
+                label: text.trim() === '' ? 'Empty' : text,
                 attention: false,
                 done: false,
             };
