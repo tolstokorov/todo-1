@@ -9,26 +9,29 @@ class App extends Component {
 
     state = {
         todoList: [
-            { id: 1, label: 'learn React', attention: false, done: false },
-            { id: 2, label: 'have a good time', attention: false, done: false },
+            this.createItem('learn React', 1),
+            this.createItem('have a good time', 2)
         ],
         search: '',
         filter: 'all' // 'all' | 'attention' | 'done'
     };
 
+    createItem(text, id) {
+        return {
+            id,
+            label: text.trim() === '' ? 'Empty' : text,
+            attention: false,
+            done: false,
+        };
+    };
+
     onAdd = (text) => {
         this.setState(( { todoList } ) => {
-            const newEl = { 
-                id: Math.max(...todoList.map(el => el.id), 1) + 1,
-                label: text.trim() === '' ? 'Empty' : text,
-                attention: false,
-                done: false,
-            };
-
             return {
                 todoList: [
                     ...todoList,
-                    newEl
+                    this.createItem(text,
+                        Math.max(...todoList.map(el => el.id), 1) + 1)
                 ]
             };
         });
@@ -110,7 +113,7 @@ class App extends Component {
 
     onFilter = (filter) => {
         this.setState({
-            filter: filter
+            filter
         });
     };
 
